@@ -1,0 +1,110 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="About GreenTECH" description="Green Technologies Holdco (Pty) Ltd — transforming South Africa's fresh produce industry through technology and collective ownership.">
+  <section class="relative overflow-hidden border-b border-white/5">
+    <div class="absolute inset-0 opacity-[0.04]" style="background: radial-gradient(ellipse at 50% 0%, #0D9488, transparent 60%);"></div>
+    <div class="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
+      <div class="max-w-3xl">
+        <a href="/" class="inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-300 transition-colors mb-6">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+          Back to GreenTECH
+        </a>
+        <h1 class="text-4xl sm:text-5xl font-bold text-white tracking-tight mb-4">About GreenTECH</h1>
+        <p class="text-xl text-accent">Green Technologies Holdco (Pty) Ltd</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 sm:py-20">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div class="prose-custom">
+        <h2 class="text-2xl font-bold text-white mb-4">Who We Are</h2>
+        <p class="text-gray-400 leading-relaxed mb-8">
+          GreenTECH (Green Technologies Holdco (Pty) Ltd) is the technology holding company that builds and operates the platforms powering the AlterMARKt ecosystem. Founded by Charl le Roux through AlterAGRO, GreenTECH exists to deliver the technology infrastructure that makes the AlterMARKt vision possible.
+        </p>
+
+        <h2 class="text-2xl font-bold text-white mb-4">Entity Structure</h2>
+        <div class="space-y-3 mb-8">
+          <div class="p-5 rounded-lg bg-surface-raised border border-white/5">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
+                <span class="text-xs font-bold text-accent">P</span>
+              </div>
+              <h3 class="font-bold text-white">AlterAGRO</h3>
+              <span class="text-xs text-gray-500">Parent / Advisory</span>
+            </div>
+            <p class="text-sm text-gray-400 ml-11">Founded by Charl le Roux. Strategic oversight and advisory for the entire AlterMARKt deal structure.</p>
+          </div>
+          <div class="ml-6 space-y-3">
+            <div class="p-5 rounded-lg bg-surface-raised border border-white/5">
+              <div class="flex items-center gap-3 mb-2">
+                <div class="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
+                  <span class="text-xs font-bold text-accent">H</span>
+                </div>
+                <h3 class="font-bold text-white">AlterMARKt Holdings SPV (Pty) Ltd</h3>
+              </div>
+              <p class="text-sm text-gray-400 ml-11">Single holding company with ring-fenced sub-accounts: Property Portfolio, Technology, and Logistics.</p>
+            </div>
+            <div class="p-5 rounded-lg bg-surface-raised border border-white/5">
+              <div class="flex items-center gap-3 mb-2">
+                <div class="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
+                  <span class="text-xs font-bold text-accent">FF</span>
+                </div>
+                <h3 class="font-bold text-white">Farmer's Fund (CIS)</h3>
+              </div>
+              <p class="text-sm text-gray-400 ml-11">1% of farmer sales contributes to pro-rata equity in facilities. Includes 8.33% reserve fund for exiting farmers and 15&ndash;20% Transformation Fund for PDI initiatives.</p>
+            </div>
+            <div class="p-5 rounded-lg bg-surface-raised border border-white/5">
+              <div class="flex items-center gap-3 mb-2">
+                <div class="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
+                  <span class="text-xs font-bold text-accent">AF</span>
+                </div>
+                <h3 class="font-bold text-white">Agency's Fund (CIS)</h3>
+              </div>
+              <p class="text-sm text-gray-400 ml-11">Minimum 2% of sales per facility, contractually contributed by Destiny OPCO. Managed via ForkFlex.</p>
+            </div>
+            <div class="p-5 rounded-lg bg-surface-raised border border-white/5">
+              <div class="flex items-center gap-3 mb-2">
+                <div class="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
+                  <span class="text-xs font-bold text-accent">FM</span>
+                </div>
+                <h3 class="font-bold text-white">Fund Manager</h3>
+              </div>
+              <p class="text-sm text-gray-400 ml-11">Service provider (not equity holder). Apolitical referee. 1% AUM management fee, performance fee tied to DFI impact KPIs.</p>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold text-white mb-4">Technology Ecosystem</h2>
+        <p class="text-gray-400 leading-relaxed mb-6">
+          GreenTECH operates three RSA technology platforms:
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+          <a href="/altermarkt" class="p-4 rounded-lg bg-surface-raised border border-white/5 hover:border-altermarkt/30 transition-colors group">
+            <p class="font-bold text-white group-hover:text-altermarkt transition-colors">AlterMARKt</p>
+            <p class="text-xs text-gray-500 mt-1">RSA-Hub-Identity</p>
+          </a>
+          <a href="/forkflex" class="p-4 rounded-lg bg-surface-raised border border-white/5 hover:border-forkflex/30 transition-colors group">
+            <p class="font-bold text-white group-hover:text-forkflex transition-colors">ForkFlex</p>
+            <p class="text-xs text-gray-500 mt-1">RSA X</p>
+          </a>
+          <a href="/beyond" class="p-4 rounded-lg bg-surface-raised border border-white/5 hover:border-beyond/30 transition-colors group">
+            <p class="font-bold text-white group-hover:text-beyond transition-colors">RSA Beyond</p>
+            <p class="text-xs text-gray-500 mt-1">RSA SupaSales</p>
+          </a>
+        </div>
+
+        <h2 class="text-2xl font-bold text-white mb-4">Regulatory Framework</h2>
+        <div class="flex flex-wrap gap-2">
+          {['CISCA', 'FSCA', 'SARB', 'Companies Act (SA)', 'IFRS', 'BEE Codes'].map(reg => (
+            <span class="px-3 py-1.5 text-sm font-medium rounded-full bg-surface-raised border border-white/10 text-gray-300">{reg}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

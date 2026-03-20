@@ -1,0 +1,72 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import PlatformCard from '../components/PlatformCard.astro';
+
+const platforms = [
+  {
+    name: 'AlterMARKt',
+    tagline: 'Rescuing SA\'s Fresh Produce Markets',
+    description: 'New, modern, privately-owned fresh produce marketing facilities funded through DFI anchor equity and collective investment. Ownership transitions from investors to farmer and agent funds over 10\u201315 years.',
+    href: '/altermarkt',
+    appUrl: 'https://rsa-hub-identity.web.app',
+    color: '#0D9488',
+    icon: 'building',
+  },
+  {
+    name: 'ForkFlex',
+    tagline: 'Intelligent Business Orchestrator',
+    description: 'The operational management platform for Destiny SPV. AI-powered with dual Gemini + Claude architecture, 24 working AI features, Cortana voice assistant, and real-time business intelligence.',
+    href: '/forkflex',
+    appUrl: 'https://forkflex-39ce1.web.app',
+    color: '#6366F1',
+    icon: 'cog',
+  },
+  {
+    name: 'RSA Beyond',
+    tagline: 'B2B Trading Marketplace',
+    description: 'The marketplace and investment portal connecting farmers, agents, and buyers. Direct B2B trading, transparent pricing, and integrated access to the Farmer\'s Fund and Agency\'s Fund equity programmes.',
+    href: '/beyond',
+    appUrl: 'https://rsa-beyond.web.app',
+    color: '#F59E0B',
+    icon: 'rocket',
+  },
+];
+---
+
+<Base title="GreenTECH — Platform Hub">
+  <Hero />
+
+  <!-- Platforms Section -->
+  <section id="platforms" class="py-20 sm:py-28">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12">
+        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-3">Our Platforms</h2>
+        <p class="text-gray-400 max-w-2xl">Three interconnected technology platforms powering the AlterMARKt ecosystem across South Africa.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {platforms.map(p => <PlatformCard {...p} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section class="py-20 border-t border-white/5">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-6">Our Founding Principles</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {['Transparency', 'Equal treatment', 'Spirit of excellence and teamwork', 'Outcome more important than profits', 'Create enduring generational value'].map(principle => (
+            <div class="flex items-start gap-3 text-left p-4 rounded-lg bg-surface-raised border border-white/5">
+              <svg class="w-5 h-5 text-accent mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-sm text-gray-300">{principle}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

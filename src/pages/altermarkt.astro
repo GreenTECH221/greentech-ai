@@ -1,0 +1,81 @@
+---
+import Base from '../layouts/Base.astro';
+import PlatformHero from '../components/PlatformHero.astro';
+---
+
+<Base title="AlterMARKt — GreenTECH" description="AlterMARKt: Rescuing South Africa's failing Fresh Produce Marketing industry through modern, privately-owned facilities.">
+  <PlatformHero
+    name="AlterMARKt"
+    tagline="Rescuing SA's Fresh Produce Markets"
+    color="#0D9488"
+    appUrl="https://rsa-hub-identity.web.app"
+  />
+
+  <section class="py-16 sm:py-20">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div class="prose-custom">
+        <h2 class="text-2xl font-bold text-white mb-4">The Problem</h2>
+        <p class="text-gray-400 leading-relaxed mb-8">
+          South Africa's municipal fresh produce markets are collapsing. Decades of underinvestment, political interference, and deteriorating infrastructure have left the industry in crisis. Farmers lose produce, agents lack modern facilities, and consumers pay inflated prices.
+        </p>
+
+        <h2 class="text-2xl font-bold text-white mb-4">The Solution</h2>
+        <p class="text-gray-400 leading-relaxed mb-6">
+          AlterMARKt builds new, modern, privately-owned fresh produce marketing facilities funded through a blended capital structure: DFI anchor equity, debt financing, and collective investment by the farmers and agents who use them.
+        </p>
+        <p class="text-gray-400 leading-relaxed mb-8">
+          Over 10&ndash;15 years, ownership transitions from DFI investors to the Farmer's Fund and Agency's Fund, creating enduring generational value for the people who built the industry.
+        </p>
+
+        <h2 class="text-2xl font-bold text-white mb-4">Capital Structure</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+          <div class="p-5 rounded-lg bg-surface-raised border border-white/5">
+            <p class="text-3xl font-bold text-accent mb-1">40%</p>
+            <p class="text-sm text-gray-400">DFI Equity (Years 1&ndash;5)</p>
+          </div>
+          <div class="p-5 rounded-lg bg-surface-raised border border-white/5">
+            <p class="text-3xl font-bold text-accent mb-1">50%</p>
+            <p class="text-sm text-gray-400">Debt Financing</p>
+          </div>
+          <div class="p-5 rounded-lg bg-surface-raised border border-white/5">
+            <p class="text-3xl font-bold text-accent mb-1">10%</p>
+            <p class="text-sm text-gray-400">Service Fees</p>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold text-white mb-4">Ownership Transition</h2>
+        <div class="space-y-3 mb-8">
+          <div class="flex items-start gap-3 p-4 rounded-lg bg-surface-raised border border-white/5">
+            <span class="text-xs font-bold text-accent bg-accent/10 px-2 py-1 rounded shrink-0">YR 1&ndash;5</span>
+            <p class="text-sm text-gray-400">DFI equity funds construction. Farmer's Fund and Agency's Fund begin accumulating through operational contributions.</p>
+          </div>
+          <div class="flex items-start gap-3 p-4 rounded-lg bg-surface-raised border border-white/5">
+            <span class="text-xs font-bold text-accent bg-accent/10 px-2 py-1 rounded shrink-0">YR 6&ndash;15</span>
+            <p class="text-sm text-gray-400">DFI staged exit. Debt repaid. Farmer's Fund and Agency's Fund grow through compounding equity.</p>
+          </div>
+          <div class="flex items-start gap-3 p-4 rounded-lg bg-surface-raised border border-white/5">
+            <span class="text-xs font-bold text-accent bg-accent/10 px-2 py-1 rounded shrink-0">YR 16+</span>
+            <p class="text-sm text-gray-400">Farmer's Fund (~35%) + Agency's Fund (~35%) majority ownership. DFI retains optional minority.</p>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold text-white mb-4">Target DFI Consortium</h2>
+        <div class="flex flex-wrap gap-2 mb-8">
+          {['Norfund', 'IDC', 'DBSA', 'BII', 'FMO', 'Finnfund'].map(dfi => (
+            <span class="px-3 py-1.5 text-sm font-medium rounded-full bg-surface-raised border border-white/10 text-gray-300">{dfi}</span>
+          ))}
+        </div>
+
+        <h2 class="text-2xl font-bold text-white mb-4">Technology Platform</h2>
+        <p class="text-gray-400 leading-relaxed mb-4">
+          AlterMARKt (RSA-Hub-Identity) is the hub platform: Flutter 3.x + Firebase, dark-only professional UI. It provides identity management, facility registration, and serves as the entry point to the GreenTECH ecosystem.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          {['Flutter 3.x', 'Firebase', 'Dark UI', 'PWA', 'CISCA Compliant'].map(tag => (
+            <span class="px-2.5 py-1 text-xs font-mono font-medium rounded bg-accent/10 text-accent">{tag}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
