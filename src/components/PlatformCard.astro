@@ -7,9 +7,10 @@ interface Props {
   appUrl: string;
   color: string;
   icon: string;
+  logoUrl?: string;
 }
 
-const { name, tagline, description, href, appUrl, color, icon } = Astro.props;
+const { name, tagline, description, href, appUrl, color, icon, logoUrl } = Astro.props;
 
 const icons: Record<string, string> = {
   building: 'M3 21h18M3 7v14M21 7v14M6 11h.01M6 15h.01M6 19h.01M10 11h.01M10 15h.01M10 19h.01M14 11h.01M14 15h.01M14 19h.01M18 11h.01M18 15h.01M18 19h.01M3 7l9-4 9 4',
@@ -24,11 +25,15 @@ const iconPath = icons[icon] || icons.building;
   <!-- Glow effect -->
   <div class="platform-glow" style={`background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), ${color}08, transparent 40%);`}></div>
 
-  <!-- Icon -->
-  <div class="relative w-12 h-12 rounded-lg flex items-center justify-center mb-4" style={`background: ${color}15;`}>
-    <svg class="w-6 h-6" style={`color: ${color};`} fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" d={iconPath} />
-    </svg>
+  <!-- Logo or Icon -->
+  <div class="relative w-12 h-12 rounded-lg flex items-center justify-center mb-4 overflow-hidden" style={`background: ${color}15;`}>
+    {logoUrl ? (
+      <img src={logoUrl} alt={`${name} logo`} class="w-10 h-10 rounded object-contain" loading="lazy" />
+    ) : (
+      <svg class="w-6 h-6" style={`color: ${color};`} fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d={iconPath} />
+      </svg>
+    )}
   </div>
 
   <!-- Content -->
