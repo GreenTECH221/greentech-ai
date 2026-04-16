@@ -1,0 +1,33 @@
+name: Tech Debt Audit
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 8 * * 1'  # Weekly Monday 8am UTC
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    name: Tech Debt Scorecard
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tech debt audit
+        run: bash scripts/tech-debt-report.sh
+
+      - name: Upload report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: tech-debt-report
+          path: tech-debt-report.md
+          retention-days: 90
