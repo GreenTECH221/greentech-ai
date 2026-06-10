@@ -1,8 +1,8 @@
 ---
 const platforms = [
   { name: 'AlterMARKt', href: 'https://rsa-hub-identity.web.app', color: 'text-altermarkt' },
-  { name: 'RSA X', href: 'https://forkflex-39ce1.web.app', color: 'text-forkflex' },
-  { name: 'RSA SupaSales', href: 'https://rsa-beyond.web.app', color: 'text-beyond' },
+  { name: 'ForkFlex', href: 'https://forkflex-39ce1.web.app', color: 'text-forkflex' },
+  { name: 'RSA Beyond', href: 'https://rsa-beyond.web.app', color: 'text-beyond' },
 ];
 ---
 
@@ -11,9 +11,10 @@ const platforms = [
     <div class="flex flex-col md:flex-row items-center justify-between gap-6">
       <!-- Brand -->
       <div class="flex items-center gap-2.5">
-        <div class="w-7 h-7 rounded-md bg-accent flex items-center justify-center">
-          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        <div class="w-7 h-7 rounded-[9px_2px_9px_2px] bg-accent flex items-center justify-center">
+          <svg class="w-3.5 h-3.5" viewBox="0 0 120 120">
+            <line x1="18" y1="102" x2="102" y2="18" stroke="#fff" stroke-width="26" stroke-linecap="butt"/>
+            <line x1="27.2" y1="27.2" x2="92.8" y2="92.8" stroke="#fff" stroke-width="26" stroke-linecap="round"/>
           </svg>
         </div>
         <span class="text-sm font-semibold text-gray-400">Green Technologies Holdco (Pty) Ltd</span>
@@ -28,8 +29,11 @@ const platforms = [
         ))}
       </div>
 
-      <!-- Meta -->
-      <p class="text-xs text-gray-600">&copy; {new Date().getFullYear()} GreenTECH &middot; Internal Use Only</p>
+      <!-- Meta — The Profreshionals® is always used separately from the logo -->
+      <p class="text-xs text-gray-600">
+        <span class="italic">The Pro<span class="text-accent">fresh</span>ionals&reg;</span>
+        &nbsp;&middot;&nbsp; &copy; {new Date().getFullYear()} GreenTECH &middot; Internal Use Only
+      </p>
     </div>
   </div>
 </footer>

@@ -3,8 +3,8 @@ const currentPath = Astro.url.pathname;
 
 const platforms = [
   { name: 'AlterMARKt', href: '/altermarkt' },
-  { name: 'RSA X', href: '/forkflex' },
-  { name: 'RSA SupaSales', href: '/beyond' },
+  { name: 'ForkFlex', href: '/forkflex' },
+  { name: 'RSA Beyond', href: '/beyond' },
 ];
 
 const navItems = [
@@ -16,11 +16,12 @@ const navItems = [
 <header class="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-surface/80 backdrop-blur-xl">
   <nav class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
     <div class="flex h-16 items-center justify-between">
-      <!-- Logo -->
+      <!-- Logo: RSA leaf tile with the X monogram (leaf-DNA terminals) -->
       <a href="/" class="flex items-center gap-2.5 group">
-        <div class="w-8 h-8 rounded-lg bg-accent flex items-center justify-center">
-          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        <div class="w-8 h-8 rounded-[10px_2px_10px_2px] bg-accent flex items-center justify-center">
+          <svg class="w-4 h-4" viewBox="0 0 120 120">
+            <line x1="18" y1="102" x2="102" y2="18" stroke="#fff" stroke-width="26" stroke-linecap="butt"/>
+            <line x1="27.2" y1="27.2" x2="92.8" y2="92.8" stroke="#fff" stroke-width="26" stroke-linecap="round"/>
           </svg>
         </div>
         <span class="text-lg font-bold text-white group-hover:text-accent transition-colors">GreenTECH</span>

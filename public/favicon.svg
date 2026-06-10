@@ -1,4 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="6" fill="#0D9488"/>
-  <path d="M17 8V5L10 14h5v7l7-9h-5z" fill="white" stroke="white" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- RSA leaf tile: rounded top-left + bottom-right, square opposites -->
+  <path d="M 0 10 Q 0 0 10 0 L 32 0 L 32 22 Q 32 32 22 32 L 0 32 Z" fill="#72BF44"/>
+  <g transform="translate(7.4 7.4) scale(0.143)">
+    <line x1="14" y1="106" x2="106" y2="14" stroke="#FFFFFF" stroke-width="34" stroke-linecap="butt"/>
+    <line x1="26" y1="26" x2="94" y2="94" stroke="#FFFFFF" stroke-width="34" stroke-linecap="round"/>
+  </g>
 </svg>
