@@ -23,8 +23,7 @@ export default {
         line: '#243420',        // x-border
         // platform accents from the family the brand already owns
         altermarkt: '#109173',  // Federated Farmers teal
-        forkflex: '#72BF44',    // RSA green — the core ops platform
-        beyond: '#23AFE5',      // Freshworld blue — trade & capital
+        rsax: '#72BF44',        // RSA green — the core ops platform (ex-ForkFlex)
       },
       fontFamily: {
         // the brand mandates Verdana for all text — system-installed, zero loading cost
