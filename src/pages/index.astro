@@ -10,29 +10,17 @@ const platforms = [
     description: 'New, modern, privately-owned fresh produce marketing facilities funded through DFI anchor equity and collective investment. Ownership transitions from investors to farmer and agent funds over 10\u201315 years.',
     href: '/altermarkt',
     appUrl: 'https://rsa-hub-identity.web.app',
-    color: '#0D9488',
+    color: '#109173',
     icon: 'building',
-    logoUrl: 'https://rsa-hub-identity.web.app/icons/Icon-192.png',
   },
   {
     name: 'RSA X',
-    tagline: 'AI-Enabled Business Orchestrator',
-    description: 'The operational management platform for AlterMARKt facilities. AI-powered with dual Gemini + Claude architecture, 24 working AI features, WhatsApp Voice control, and real-time business intelligence.',
-    href: '/forkflex',
+    tagline: 'Intelligent Business Orchestrator',
+    description: 'The operational management platform for Destiny SPV. Born as ForkFlex on the forklift floor, evolved into the full orchestrator — dual Gemini + Claude architecture, 24 working AI features, Cortana voice assistant, and real-time business intelligence.',
+    href: '/rsa-x',
     appUrl: 'https://forkflex-39ce1.web.app',
-    color: '#6366F1',
+    color: '#72BF44',
     icon: 'cog',
-    logoUrl: 'https://forkflex-39ce1.web.app/icons/Icon-192.png',
-  },
-  {
-    name: 'RSA SupaSales',
-    tagline: 'B2B Trading Marketplace',
-    description: 'The marketplace and investment portal connecting farmers, agents, and buyers. Direct B2B trading, transparent pricing, and integrated access to the Farmer\'s Fund and Agency\'s Fund equity programmes.',
-    href: '/beyond',
-    appUrl: 'https://rsa-beyond.web.app',
-    color: '#F59E0B',
-    icon: 'rocket',
-    logoUrl: 'https://rsa-beyond.web.app/icons/Icon-192.png',
   },
 ];
 ---
@@ -45,10 +33,10 @@ const platforms = [
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
       <div class="mb-12">
         <h2 class="text-2xl sm:text-3xl font-bold text-white mb-3">Our Platforms</h2>
-        <p class="text-gray-400 max-w-2xl">Three interconnected technology platforms powering the AlterMARKt ecosystem across South Africa.</p>
+        <p class="text-gray-400 max-w-2xl">Two interconnected technology platforms powering the AlterMARKt ecosystem across South Africa — the physical markets and the intelligence that runs them.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
         {platforms.map(p => <PlatformCard {...p} />)}
       </div>
     </div>

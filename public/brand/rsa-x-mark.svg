@@ -1,0 +1,14 @@
+<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- RSA X monogram. Leaf DNA from the RSA Group logo:
+       the "\" stroke carries the ROUNDED terminals (top-left, bottom-right),
+       the "/" stroke carries the SQUARE terminals (top-right, bottom-left). -->
+  <defs>
+    <linearGradient id="xg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#A8E063"/>
+      <stop offset="0.55" stop-color="#72BF44"/>
+      <stop offset="1" stop-color="#4C8A2B"/>
+    </linearGradient>
+  </defs>
+  <line x1="18" y1="102" x2="102" y2="18" stroke="url(#xg)" stroke-width="26" stroke-linecap="butt"/>
+  <line x1="27.2" y1="27.2" x2="92.8" y2="92.8" stroke="url(#xg)" stroke-width="26" stroke-linecap="round"/>
+</svg>

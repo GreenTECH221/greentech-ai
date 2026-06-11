@@ -1,0 +1,55 @@
+<svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <!-- RSA X hero background — dark industrial glasshouse.
+       Carries the brand-pack wireframe-curve motif into dark mode.
+       Safe for text overlay on the left two-thirds. -->
+  <defs>
+    <radialGradient id="pool" cx="0.72" cy="0.42" r="0.85">
+      <stop offset="0" stop-color="#16280F"/>
+      <stop offset="0.45" stop-color="#0B130A"/>
+      <stop offset="1" stop-color="#060906"/>
+    </radialGradient>
+    <linearGradient id="curveFade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#72BF44" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#72BF44" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#72BF44" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="vignette" cx="0.5" cy="0.5" r="0.75">
+      <stop offset="0.62" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.55"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#pool)"/>
+
+  <!-- sweeping wireframe curves (brand motif) -->
+  <g stroke="url(#curveFade)" fill="none" stroke-width="1.1">
+    <path d="M -100 980 C 420 760, 900 1040, 1480 740 S 2100 520, 2100 520" opacity="0.50"/>
+    <path d="M -100 1020 C 460 800, 940 1080, 1520 780 S 2120 560, 2120 560" opacity="0.42"/>
+    <path d="M -100 1060 C 500 840, 980 1120, 1560 820 S 2140 600, 2140 600" opacity="0.34"/>
+    <path d="M -100 1100 C 540 880, 1020 1160, 1600 860 S 2160 640, 2160 640" opacity="0.26"/>
+    <path d="M -100 1140 C 580 920, 1060 1200, 1640 900 S 2180 680, 2180 680" opacity="0.18"/>
+    <path d="M -100 240 C 500 460, 1100 80, 1700 320 S 2100 420, 2100 420" opacity="0.22"/>
+    <path d="M -100 200 C 460 420, 1060 40, 1660 280 S 2080 380, 2080 380" opacity="0.15"/>
+  </g>
+
+  <!-- leaf watermark, right field: rounded TL+BR, square TR+BL -->
+  <path d="M 1310 330 Q 1310 190 1450 190 L 1810 190 L 1810 750 Q 1810 890 1670 890 L 1310 890 Z"
+        fill="none" stroke="#72BF44" stroke-opacity="0.10" stroke-width="2"/>
+  <path d="M 1360 380 Q 1360 270 1470 270 L 1760 270 L 1760 700 Q 1760 810 1650 810 L 1360 810 Z"
+        fill="none" stroke="#72BF44" stroke-opacity="0.06" stroke-width="1.4"/>
+
+  <!-- data motes -->
+  <g fill="#A8E063">
+    <circle cx="240" cy="210" r="2.4" opacity="0.55"/>
+    <circle cx="520" cy="120" r="1.6" opacity="0.35"/>
+    <circle cx="880" cy="300" r="2.0" opacity="0.45"/>
+    <circle cx="1180" cy="160" r="1.4" opacity="0.30"/>
+    <circle cx="1540" cy="120" r="2.6" opacity="0.50"/>
+    <circle cx="1700" cy="500" r="1.8" opacity="0.40"/>
+    <circle cx="1420" cy="940" r="2.2" opacity="0.45"/>
+    <circle cx="300" cy="760" r="1.7" opacity="0.35"/>
+    <circle cx="760" cy="880" r="2.4" opacity="0.40"/>
+  </g>
+
+  <rect width="1920" height="1080" fill="url(#vignette)"/>
+</svg>

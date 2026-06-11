@@ -1,0 +1,12 @@
+{
+  "projects": {
+    "default": "forkflex-39ce1"
+  },
+  "targets": {
+    "forkflex-39ce1": {
+      "hosting": {
+        "greentech-ai": ["greentech-ai"]
+      }
+    }
+  }
+}

@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+/* RSA X — no webfont imports: the brand typeface is Verdana, system-installed. */
 
+@layer base {
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
@@ -16,26 +16,41 @@
   }
 
   ::selection {
-    @apply bg-accent/30 text-white;
+    background: #72bf44;
+    color: #000;
   }
 }
 
 @layer components {
+  /* green-tinted charcoal pool behind heroes — replaces the old navy/teal */
   .gradient-hero {
-    background: linear-gradient(135deg, #0A0F1A 0%, #0F2027 40%, #0D9488 200%);
+    background:
+      radial-gradient(900px 480px at 75% 35%, rgba(114, 191, 68, 0.10), transparent 70%),
+      linear-gradient(160deg, #060906 0%, #0b130a 55%, #060906 100%);
   }
 
   .card-hover {
     @apply transition-all duration-300 ease-out;
   }
   .card-hover:hover {
-    @apply -translate-y-1 shadow-xl shadow-black/20;
+    @apply -translate-y-1 shadow-xl shadow-black/40;
+    border-color: rgba(114, 191, 68, 0.25);
   }
 
   .platform-glow {
-    @apply absolute inset-0 rounded-xl opacity-0 transition-opacity duration-300;
+    @apply absolute inset-0 rounded-leaf opacity-0 transition-opacity duration-300;
   }
   .card-hover:hover .platform-glow {
     @apply opacity-100;
+  }
+
+  /* thin top glow-line for featured surfaces */
+  .glow-line {
+    background: linear-gradient(90deg, transparent, rgba(114, 191, 68, 0.5), transparent);
+  }
+
+  /* wide-tracked label, the RSA X voice */
+  .x-label {
+    @apply text-[11px] font-bold tracking-[0.45em] text-accent;
   }
 }

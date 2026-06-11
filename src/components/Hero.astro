@@ -1,46 +1,200 @@
 ---
+// RSA X "Convergence Leaf" hero — live 3D (Three.js via CDN).
+// The leaf carries the RSA logo DNA: rounded top-left + bottom-right,
+// square opposites. Drag to spin; hover follows the pointer.
 interface Props {
   title?: string;
   subtitle?: string;
 }
 
-const { title = 'GreenTECH', subtitle = 'Three platforms. One mission. Transforming South Africa\'s fresh produce industry through technology, transparency, and collective ownership.' } = Astro.props;
+const {
+  title = 'GreenTECH',
+  subtitle = 'Three platforms. One mission. Transforming South Africa’s fresh produce industry through technology, transparency, and collective ownership.',
+} = Astro.props;
 ---
 
-<section class="gradient-hero relative overflow-hidden">
-  <!-- Subtle grid pattern -->
-  <div class="absolute inset-0 opacity-[0.03]" style="background-image: url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cg fill=&quot;none&quot; stroke=&quot;%23fff&quot; stroke-width=&quot;0.5&quot;%3E%3Cpath d=&quot;M60 0v60H0&quot;/%3E%3C/g%3E%3C/svg%3E');"></div>
+<section id="x-hero" class="gradient-hero relative overflow-hidden h-[92vh] min-h-[600px]">
+  <canvas id="x-scene" class="absolute inset-0 w-full h-full cursor-grab active:cursor-grabbing" style="touch-action: pan-y;"></canvas>
 
-  <div class="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40">
-    <div class="max-w-3xl">
-      <!-- Badge -->
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 mb-6">
-        <div class="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></div>
-        <span class="text-xs font-medium text-accent">Green Technologies Holdco (Pty) Ltd</span>
-      </div>
+  <div class="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 h-full flex items-center pointer-events-none">
+    <div class="max-w-2xl" style="text-shadow: 0 1px 14px rgba(0,0,0,.85);">
+      <div class="x-label mb-7">RSA GROUP &middot; GREEN TECHNOLOGY HOLDCO</div>
 
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6">
-        {title}
+      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#F2F7EE] tracking-tight mb-6 leading-[0.95]">
+        Green<span class="bg-gradient-to-br from-accent-light via-accent to-accent-dark bg-clip-text text-transparent" style="filter: drop-shadow(0 0 24px rgba(114,191,68,.4));">TECH</span>
       </h1>
-      <p class="text-lg sm:text-xl text-gray-400 leading-relaxed max-w-2xl">
+      <p class="text-base sm:text-lg text-[#98A294] leading-relaxed max-w-xl">
         {subtitle}
       </p>
 
-      <!-- Quick nav pills -->
-      <div class="flex flex-wrap gap-3 mt-10">
-        <a href="#platforms" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-accent text-white text-sm font-medium hover:bg-accent-light transition-colors">
+      <div class="flex flex-wrap gap-3 mt-10 pointer-events-auto">
+        <a href="#platforms" class="inline-flex items-center gap-2 px-6 py-3 rounded-leaf bg-accent text-black text-sm font-bold hover:bg-accent-light transition-colors">
           View Platforms
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
           </svg>
         </a>
-        <a href="/about" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-white/10 text-gray-300 text-sm font-medium hover:bg-white/5 hover:text-white transition-colors">
+        <a href="/about" class="inline-flex items-center gap-2 px-6 py-3 rounded-leaf border border-line text-[#98A294] text-sm font-bold hover:border-accent/40 hover:text-[#F2F7EE] transition-colors">
           About GreenTECH
         </a>
+      </div>
+
+      <div class="flex items-center gap-4 mt-12">
+        <div class="h-[3px] w-16 bg-gradient-to-r from-accent to-transparent"></div>
+        <span class="text-[11px] tracking-[0.4em] text-[#6C7568]">THE ROAD TO RSA X</span>
       </div>
     </div>
   </div>
 
-  <!-- Bottom fade -->
-  <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-surface to-transparent"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-surface to-transparent z-10"></div>
 </section>
+
+<script is:inline type="importmap">
+{ "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+} }
+</script>
+<script is:inline type="module">
+import * as THREE from 'three';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+const canvas = document.getElementById('x-scene');
+if (canvas) {
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+  const PR = Math.min(devicePixelRatio, 2);
+  renderer.setPixelRatio(PR);
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.1;
+
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x060906);
+  scene.fog = new THREE.Fog(0x060906, 9, 22);
+  scene.environment = new THREE.PMREMGenerator(renderer)
+    .fromScene(new RoomEnvironment(), 0.04).texture;
+
+  const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 60);
+  camera.position.set(0, 0.4, 7.2);
+
+  // leaf: rounded TL + BR, square TR + BL
+  const shape = new THREE.Shape();
+  const w = 1.35, h = 1.35, r = 0.85;
+  shape.moveTo(-w, -h);
+  shape.lineTo(w - r, -h);
+  shape.absarc(w - r, -h + r, r, -Math.PI / 2, 0, false);
+  shape.lineTo(w, h);
+  shape.lineTo(-w + r, h);
+  shape.absarc(-w + r, h - r, r, Math.PI / 2, Math.PI, false);
+  shape.closePath();
+
+  const slabGeo = new THREE.ExtrudeGeometry(shape, {
+    depth: 0.5, bevelEnabled: true, bevelThickness: 0.04, bevelSize: 0.04,
+    bevelSegments: 4, curveSegments: 48,
+  });
+  slabGeo.center();
+  const slab = new THREE.Mesh(slabGeo, new THREE.MeshPhysicalMaterial({
+    color: 0x72bf44, metalness: 0, roughness: 0.08,
+    transmission: 0.92, thickness: 1.4, ior: 1.45,
+    attenuationColor: new THREE.Color(0x5ea332), attenuationDistance: 3.6,
+  }));
+
+  const xMat = new THREE.MeshBasicMaterial({ color: 0xd6ff9e });
+  xMat.toneMapped = false;
+  const barGeo = new THREE.BoxGeometry(2.6, 0.22, 0.1);
+  const bar1 = new THREE.Mesh(barGeo, xMat); bar1.rotation.z = Math.PI / 4;
+  const bar2 = new THREE.Mesh(barGeo, xMat); bar2.rotation.z = -Math.PI / 4;
+
+  const group = new THREE.Group();
+  group.add(slab, bar1, bar2);
+  group.rotation.y = -0.26;
+  scene.add(group);
+
+  // soft round motes
+  const sc = document.createElement('canvas');
+  sc.width = sc.height = 64;
+  const sg = sc.getContext('2d');
+  const grad = sg.createRadialGradient(32, 32, 0, 32, 32, 32);
+  grad.addColorStop(0, 'rgba(214,255,158,1)');
+  grad.addColorStop(0.35, 'rgba(114,191,68,.55)');
+  grad.addColorStop(1, 'rgba(114,191,68,0)');
+  sg.fillStyle = grad;
+  sg.fillRect(0, 0, 64, 64);
+
+  const N = 300, pos = new Float32Array(N * 3);
+  for (let i = 0; i < N; i++) {
+    pos[i * 3] = (Math.random() - 0.5) * 18;
+    pos[i * 3 + 1] = (Math.random() - 0.5) * 10;
+    pos[i * 3 + 2] = (Math.random() - 0.5) * 14 - 2;
+  }
+  const motes = new THREE.Points(
+    new THREE.BufferGeometry().setAttribute('position', new THREE.BufferAttribute(pos, 3)),
+    new THREE.PointsMaterial({
+      map: new THREE.CanvasTexture(sc), color: 0xffffff, size: 0.11,
+      transparent: true, opacity: 0.8, depthWrite: false,
+      blending: THREE.AdditiveBlending,
+    })
+  );
+  scene.add(motes);
+
+  scene.add(new THREE.AmbientLight(0x223318, 2.2));
+  const key = new THREE.DirectionalLight(0xfff8ec, 2.6); key.position.set(-4, 5, 4); scene.add(key);
+  const rim = new THREE.DirectionalLight(0xa8e063, 2.0); rim.position.set(5, 2, -4); scene.add(rim);
+
+  const msaaTarget = new THREE.WebGLRenderTarget(1, 1, { samples: 8 });
+  const composer = new EffectComposer(renderer, msaaTarget);
+  composer.setPixelRatio(PR);
+  composer.addPass(new RenderPass(scene, camera));
+  composer.addPass(new UnrealBloomPass(new THREE.Vector2(1, 1), 0.9, 0.6, 0.62));
+
+  // strong hover-follow + drag-to-spin with capped inertia
+  let followY = 0, followX = 0, curY = 0, curX = 0;
+  let dragging = false, lastPX = 0, spin = 0, spinVel = 0;
+  addEventListener('pointermove', e => {
+    followY = (e.clientX / innerWidth - 0.5) * 2.1;
+    followX = (e.clientY / innerHeight - 0.5) * 0.55;
+    if (dragging) {
+      const dx = e.clientX - lastPX;
+      lastPX = e.clientX;
+      spin += dx * 0.011;
+      spinVel = Math.max(-0.18, Math.min(0.18, dx * 0.011));
+    }
+  });
+  canvas.addEventListener('pointerdown', e => {
+    dragging = true; lastPX = e.clientX;
+    canvas.setPointerCapture(e.pointerId);
+  });
+  addEventListener('pointerup', () => { dragging = false; });
+  addEventListener('pointercancel', () => { dragging = false; });
+
+  function layout() {
+    const host = canvas.parentElement;
+    const cw = host.clientWidth, ch = host.clientHeight;
+    renderer.setSize(cw, ch, false);
+    composer.setSize(cw, ch);
+    camera.aspect = cw / ch;
+    const mobile = cw <= 880;
+    camera.setViewOffset(cw, ch, mobile ? 0 : -cw * 0.24, mobile ? -ch * 0.14 : ch * 0.02, cw, ch);
+    group.scale.setScalar(mobile ? 0.6 : 1);
+    camera.updateProjectionMatrix();
+  }
+  addEventListener('resize', layout);
+  layout();
+
+  const clock = new THREE.Clock();
+  (function tick() {
+    const t = clock.getElapsedTime();
+    curY += (followY - curY) * 0.055;
+    curX += (followX - curX) * 0.055;
+    if (!dragging) { spin += spinVel; spinVel *= 0.965; }
+    group.rotation.y = -0.26 + Math.sin(t * 0.25) * 0.12 + curY + spin;
+    group.rotation.x = Math.sin(t * 0.18) * 0.04 + curX;
+    group.position.y = Math.sin(t * 0.5) * 0.08;
+    motes.rotation.y = t * 0.015;
+    composer.render();
+    requestAnimationFrame(tick);
+  })();
+}
+</script>

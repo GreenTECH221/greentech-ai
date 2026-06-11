@@ -5,4 +5,8 @@ export default defineConfig({
   site: 'https://greentech-ai.com',
   integrations: [tailwind()],
   output: 'static',
+  redirects: {
+    '/forkflex': '/rsa-x',  // platform renamed — ForkFlex became RSA X
+    '/beyond': '/',         // RSA Beyond shelved in favour of the Yield App
+  },
 });
