@@ -3,13 +3,19 @@ interface Props {
   name: string;
   tagline: string;
   description: string;
-  href: string;
+  href?: string;
   appUrl: string;
   color: string;
   icon: string;
+  status?: string;
 }
 
-const { name, tagline, description, href, appUrl, color, icon } = Astro.props;
+const { name, tagline, description, href, appUrl, color, icon, status } = Astro.props;
+
+// Platforms without a dedicated detail page (href omitted) link the whole card
+// straight to their live app in a new tab; the primary CTA becomes "Launch app".
+const hasPage = Boolean(href);
+const cardHref = hasPage ? href : appUrl;
 
 const icons: Record<string, string> = {
   building: 'M3 21h18M3 7v14M21 7v14M6 11h.01M6 15h.01M6 19h.01M10 11h.01M10 15h.01M10 19h.01M14 11h.01M14 15h.01M14 19h.01M18 11h.01M18 15h.01M18 19h.01M3 7l9-4 9 4',
@@ -24,7 +30,8 @@ const iconPath = icons[icon] || icons.building;
     splits the card into fragments — the main link is an absolute overlay,
     and "Launch app" sits above it with its own z-index. */}
 <div class="card-hover relative group rounded-leaf border border-line bg-surface-raised p-6 overflow-hidden">
-  <a href={href} class="absolute inset-0 z-[1]" aria-label={`Learn more about ${name}`}></a>
+  <a href={cardHref} {...(hasPage ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
+     class="absolute inset-0 z-[1]" aria-label={hasPage ? `Learn more about ${name}` : `Launch ${name}`}></a>
 
   <!-- Glow effect -->
   <div class="platform-glow" style={`background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), ${color}08, transparent 40%);`}></div>
@@ -38,24 +45,32 @@ const iconPath = icons[icon] || icons.building;
 
   <!-- Content -->
   <div class="relative">
-    <h3 class="text-lg font-bold text-white mb-1">{name}</h3>
+    <div class="flex items-center gap-2 mb-1">
+      <h3 class="text-lg font-bold text-white">{name}</h3>
+      {status && (
+        <span class="inline-flex items-center text-[10px] font-semibold uppercase tracking-wider px-1.5 py-0.5 rounded-full border"
+              style={`color: ${color}; border-color: ${color}55; background: ${color}14;`}>{status}</span>
+      )}
+    </div>
     <p class="text-sm font-medium mb-3" style={`color: ${color};`}>{tagline}</p>
     <p class="text-sm text-gray-400 leading-relaxed mb-5">{description}</p>
 
     <div class="flex items-center gap-3">
       <span class="inline-flex items-center gap-1.5 text-sm font-medium text-white group-hover:text-accent transition-colors">
-        Learn more
+        {hasPage ? 'Learn more' : 'Launch app'}
         <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
         </svg>
       </span>
-      <a href={appUrl} target="_blank" rel="noopener noreferrer"
-         class="relative z-[2] inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full border border-white/10 text-gray-400 hover:text-white hover:border-accent/40 transition-colors">
-        Launch app
-        <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
-        </svg>
-      </a>
+      {hasPage && (
+        <a href={appUrl} target="_blank" rel="noopener noreferrer"
+           class="relative z-[2] inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full border border-white/10 text-gray-400 hover:text-white hover:border-accent/40 transition-colors">
+          Launch app
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+          </svg>
+        </a>
+      )}
     </div>
   </div>
 </div>
