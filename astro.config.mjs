@@ -7,6 +7,6 @@ export default defineConfig({
   output: 'static',
   redirects: {
     '/forkflex': '/rsa-x',  // platform renamed — ForkFlex became RSA X
-    '/beyond': '/',         // RSA Beyond shelved in favour of the Yield App
+    '/beyond': '/',         // RSA Beyond has no page on this hub — the home-page card links to rsa-beyond.web.app
   },
 });

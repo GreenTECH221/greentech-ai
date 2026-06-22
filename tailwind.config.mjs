@@ -24,6 +24,7 @@ export default {
         // platform accents from the family the brand already owns
         altermarkt: '#109173',  // Federated Farmers teal
         rsax: '#72BF44',        // RSA green — the core ops platform (ex-ForkFlex)
+        beyond: '#2E7D32',      // RSA Beyond — AI-native fresh produce trading
       },
       fontFamily: {
         // the brand mandates Verdana for all text — system-installed, zero loading cost

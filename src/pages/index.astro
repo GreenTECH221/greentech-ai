@@ -22,6 +22,15 @@ const platforms = [
     color: '#72BF44',
     icon: 'cog',
   },
+  {
+    name: 'RSA Beyond',
+    tagline: 'AI-Native Fresh Produce Trading',
+    description: 'Connects suppliers, buyers, agents and logistics on one platform with agent-mediated anonymity. Now live in beta — track and comment on any issues or suggestions as you trade.',
+    appUrl: 'https://rsa-beyond.web.app',
+    color: '#2E7D32',
+    icon: 'rocket',
+    status: 'Live · Beta',
+  },
 ];
 ---
 
@@ -33,10 +42,10 @@ const platforms = [
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
       <div class="mb-12">
         <h2 class="text-2xl sm:text-3xl font-bold text-white mb-3">Our Platforms</h2>
-        <p class="text-gray-400 max-w-2xl">Two interconnected technology platforms powering the AlterMARKt ecosystem across South Africa — the physical markets and the intelligence that runs them.</p>
+        <p class="text-gray-400 max-w-2xl">Three technology platforms powering the AlterMARKt ecosystem across South Africa — the physical markets, the intelligence that runs them, and the digital trade that connects buyers and sellers.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {platforms.map(p => <PlatformCard {...p} />)}
       </div>
     </div>
